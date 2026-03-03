@@ -1,0 +1,863 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #1a1a1a;
+    overflow: hidden;
+}
+
+.presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LAYOUT 1 - CAPA */
+.slide-1 {
+    background: #0A3D62;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.slide-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%230A3D62" width="1920" height="1080"/></svg>');
+    opacity: 0.2;
+}
+
+.slide-1 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 7rem;
+    margin-bottom: 40px;
+    letter-spacing: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.slide-1 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: #C9A86A;
+    position: relative;
+    z-index: 1;
+}
+
+/* LAYOUT 2 - 3 COLUNAS */
+.slide-2 {
+    background: #F2F2F2;
+}
+
+.slide-2 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: #0A3D62;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.column {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    border-left: 6px solid #0A3D62;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.column h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #0A3D62;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.column ul {
+    list-style: none;
+}
+
+.column li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #2C2C2C;
+    line-height: 1.5;
+}
+
+.column li:last-child {
+    border-bottom: none;
+}
+
+.column li:before {
+    content: "•";
+    color: #C9A86A;
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 1.3rem;
+}
+
+/* LAYOUT 3 - Lista com Ícones */
+.slide-3 {
+    background: linear-gradient(135deg, #C9A86A 0%, #d4b779 100%);
+    color: white;
+}
+
+.slide-3 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.slide-3 ul {
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    max-width: 1000px;
+    line-height: 1.4;
+}
+
+.slide-3 li {
+    padding: 22px 0;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+.slide-3 li:before {
+    content: "🎯";
+    margin-right: 20px;
+    font-size: 2rem;
+}
+
+/* LAYOUT 4 - Slide de Impacto */
+.slide-4 {
+    background: #2C2C2C;
+    color: white;
+}
+
+.slide-4 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    text-align: center;
+    color: #C9A86A;
+    line-height: 1.3;
+}
+
+.slide-4 ul {
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    max-width: 1100px;
+    line-height: 1.5;
+}
+
+.slide-4 li {
+    padding: 20px 35px;
+    margin: 18px 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    border-left: 5px solid #C9A86A;
+}
+
+.slide-4 li strong {
+    color: #C9A86A;
+    font-weight: 700;
+}
+
+/* LAYOUT 5 - Comparação */
+.slide-5 {
+    background: #F2F2F2;
+}
+
+.slide-5 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #0A3D62;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.comparison-box {
+    padding: 50px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+.wrong {
+    background: #FFE5E5;
+    border: 4px solid #E74C3C;
+}
+
+.right {
+    background: #E8F8F5;
+    border: 4px solid #2ECC71;
+}
+
+.comparison-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+}
+
+.comparison-box p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: #2C2C2C;
+}
+
+/* LAYOUT 6 - Prova Social */
+.slide-6 {
+    background: #0A3D62;
+    color: white;
+}
+
+.slide-6 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 4.5rem;
+    margin-bottom: 70px;
+    text-align: center;
+    color: #C9A86A;
+}
+
+.slide-6 ul {
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    max-width: 1000px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.slide-6 li {
+    padding: 30px 0;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+/* LAYOUT 7 - Tabela Gamificada */
+.slide-7 {
+    background: #F2F2F2;
+}
+
+.slide-7 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #0A3D62;
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.gamification-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.gamification-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #0A3D62;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.gamification-table {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+    margin-bottom: 40px;
+}
+
+.game-table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: #0A3D62;
+    color: white;
+    padding: 20px 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.game-table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    align-items: center;
+}
+
+.game-table-row:last-child {
+    border-bottom: none;
+    background: #E8F8F5;
+    font-weight: 700;
+}
+
+.game-table-row:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.game-points {
+    text-align: center;
+    color: #2ECC71;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.game-prize {
+    text-align: center;
+    color: #C9A86A;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.gamification {
+    background: linear-gradient(135deg, #C9A86A 0%, #d4b779 100%);
+    padding: 40px 60px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+.gamification h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.gamification p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1.6;
+}
+
+/* LAYOUT 8 - Linha do Tempo */
+.slide-8 {
+    background: #F2F2F2;
+}
+
+.slide-8 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: #0A3D62;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.schedule {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.schedule-item {
+    background: white;
+    padding: 30px 40px;
+    margin: 22px 0;
+    border-radius: 12px;
+    border-left: 8px solid #0A3D62;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.schedule-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #C9A86A;
+    margin-bottom: 18px;
+}
+
+.schedule-item ul {
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #2C2C2C;
+}
+
+.schedule-item li {
+    padding: 10px 0;
+    line-height: 1.5;
+}
+
+.schedule-item li:before {
+    content: "→";
+    color: #0A3D62;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.rule-box {
+    background: #E74C3C;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+/* LAYOUT 10 - Sistema (Trello) */
+.slide-10 {
+    background: #F2F2F2;
+}
+
+.slide-10 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #0A3D62;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.trello-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin-bottom: 50px;
+}
+
+.trello-card {
+    background: #0A3D62;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.rules-box {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    max-width: 900px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.rules-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #0A3D62;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+.rules-box ul {
+    list-style: none;
+}
+
+.rules-box li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    padding: 12px 0;
+    color: #2C2C2C;
+    font-size: 1.2rem;
+}
+
+.rules-box li:before {
+    content: "✓";
+    color: #2ECC71;
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 1.4rem;
+}
+
+/* Slide Impacto - Velocidade */
+.slide-11 {
+    background: #0A3D62;
+    color: white;
+    text-align: center;
+}
+
+.slide-11 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
+    margin-bottom: 50px;
+    color: #C9A86A;
+}
+
+.slide-11 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.slide-11 .big-phrase {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 1.3;
+    max-width: 1000px;
+}
+
+/* Slide Impacto - 2 Horas */
+.slide-12 {
+    background: #E74C3C;
+    color: white;
+    text-align: center;
+}
+
+.slide-12 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.8rem;
+    margin-bottom: 90px;
+}
+
+.slide-12 .big-phrase {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 5.5rem;
+    line-height: 1.2;
+}
+
+/* Script Obrigatório */
+.slide-13 {
+    background: #F2F2F2;
+}
+
+.slide-13 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    color: #0A3D62;
+    margin-bottom: 60px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.questions {
+    max-width: 800px;
+}
+
+.question-item {
+    background: white;
+    padding: 30px 40px;
+    margin: 22px 0;
+    border-radius: 12px;
+    border-left: 8px solid #C9A86A;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #2C2C2C;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Leads A/B/C */
+.slide-14, .slide-15, .slide-16 {
+    background: #F2F2F2;
+}
+
+.lead-box {
+    max-width: 900px;
+    padding: 60px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+.lead-a {
+    background: linear-gradient(135deg, #E74C3C 0%, #c0392b 100%);
+    color: white;
+}
+
+.lead-b {
+    background: linear-gradient(135deg, #F39C12 0%, #e67e22 100%);
+    color: white;
+}
+
+.lead-c {
+    background: linear-gradient(135deg, #95A5A6 0%, #7f8c8d 100%);
+    color: white;
+}
+
+.lead-box h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    margin-bottom: 50px;
+}
+
+.lead-box ul {
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.lead-box li {
+    padding: 18px 0;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+/* Regra de Ouro */
+.slide-18 {
+    background: #0A3D62;
+    color: white;
+    text-align: center;
+}
+
+.slide-18 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.2rem;
+    margin-bottom: 70px;
+}
+
+.slide-18 ul {
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+.slide-18 li {
+    padding: 28px;
+    margin: 22px 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+}
+
+/* Metas 90 dias */
+.slide-19 {
+    background: #F2F2F2;
+}
+
+.slide-19 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: #0A3D62;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 1100px;
+}
+
+.goal-card {
+    background: linear-gradient(135deg, #C9A86A 0%, #d4b779 100%);
+    padding: 45px;
+    border-radius: 16px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+.goal-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+}
+
+.goal-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+/* Pilares */
+.slide-20 {
+    background: #F2F2F2;
+}
+
+.slide-20 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: #0A3D62;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 1000px;
+}
+
+.pillar {
+    background: white;
+    padding: 50px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+    border-top: 6px solid #0A3D62;
+}
+
+.pillar h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #0A3D62;
+}
+
+/* Fechamento */
+.slide-21 {
+    background: #0A3D62;
+    color: white;
+    text-align: center;
+}
+
+.slide-21 h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 4.5rem;
+    margin-bottom: 70px;
+}
+
+.slide-21 p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1.7;
+    max-width: 1000px;
+    margin: 25px auto;
+}
+
+.slide-21 .final {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    margin-top: 70px;
+    color: #C9A86A;
+}
+
+/* Navegação */
+.navigation {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    gap: 18px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    background: #C9A86A;
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav-btn:hover {
+    background: #0A3D62;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.nav-btn:disabled {
+    background: #95A5A6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.slide-counter {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    background: rgba(10, 61, 98, 0.9);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
